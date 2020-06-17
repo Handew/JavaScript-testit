@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML -Laskin</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Laskin</h1>
+
+        <h4 id="laskentakaava"></h4>
+        <h3 id="tulos"></h3>
+
+        <button type="button" onclick="kaava(7)">7</button>
+        <button type="button" onclick="kaava(8)">8</button>
+        <button type="button" onclick="kaava(9)">9</button>
+        <button type="button" onclick="kaava('/')">/</button><br>
+        <button type="button" onclick="kaava(4)">4</button>
+        <button type="button" onclick="kaava(5)">5</button> 
+        <button type="button" onclick="kaava(6)">6</button>
+        <button type="button" onclick="kaava('*')">*</button><br>
+        <button type="button" onclick="kaava(1)">1</button>
+        <button type="button" onclick="kaava(2)">2</button>
+        <button type="button" onclick="kaava(3)">3</button>
+        <button type="button" onclick="kaava('-')">-</button><br>
+        <button type="button" onclick="tyhjennys()">c</button>
+        <button type="button" onclick="kaava(0)">0</button>
+        <button type="button" onclick="laske()">=</button>
+        <button type="button" onclick="kaava('+')">+</button>
+        
+        
+
+        <script>
+            function kaava(syote){
+                document.getElementById("laskentakaava").innerHTML += syote;
+                console.log("kaavaa: " + syote)
+            }
+            
+            function laske(){
+                let tulos = eval(document.getElementById("laskentakaava").textContent);
+                document.getElementById("tulos").innerHTML = tulos;
+                console.log("tulos: " +tulos);
+            }
+
+            function tyhjennys(){
+                document.getElementById("laskentakaava").innerHTML ="";
+                document.getElementById("tulos").innerHTML="";
+            }
+        </script>
+    </body>
+</html>

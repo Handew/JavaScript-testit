@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <h2>JavaScript Scope</h2>
+
+        <p>A GLOBAL variable can be accessed from any scropt or function.</p>
+        
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+
+        <script>
+            var carName = "Volvo";
+            var carModel = "V90";
+            myFunction1();
+            myFunction2();
+
+            function myFunction1(){
+                let carName = "Nissan";
+                let carModel = "Bluebird";
+                document.getElementById("demo1").innerHTML = "Func1: I can display " + carName + " " +carModel;
+            }
+
+            function myFunction2(){
+                document.getElementById("demo2").innerHTML = "Func2: I can display " + carName + " " +carModel;
+            }
+
+        </script>
+    </body>
+</html>
