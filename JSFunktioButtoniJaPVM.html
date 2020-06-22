@@ -4,25 +4,35 @@
     <meta charset="UTF-8">
 </head>
 <body>
+    <button onclick="testiFunktio()">Tervehdys</button>
+    <p id="paikkamerkki"></p>
+
     <form name="pvmLomake">
-        <button onclick="testiFunktio()">Tervehdys</button>
-        <p id="paikkamerkki"></p>
 
         Anna alkupvm: <input type="date" name="apvm" min="2020-06-01"><br>
-        Anna loppupvm: <input type="date" name="lpvm" max="2049-12-31">
+        Anna loppupvm: <input type="date" name="lpvm" max="2049-12-31"><br>
 
-        <button onclick="laskuri()">Laskuri</button>
+        <input type="button" value="Päivämäärien erotus" onclick="laskuri()"><br>
         Päivämäärien erotus päivissä: <input type="text" name="paivia"><br>
         Päivämäärien erotus vuosissa: <input type="text" name="vuosia"><br>
     </form>
     <script>
         function testiFunktio(){
             let omaPvm = new Date();
-            document.getElementById("paikkamerkki").innerHTML ="Nyt on: " +omaPvm.getDate() +"."+ omaPvm.getMonth() +"." + omaPvm.getFullYear() + " " + omaPvm.getHours()+ ":" +omaPvm.getUTCMinutes();
+            document.getElementById("paikkamerkki").innerHTML ="Nyt on: " +omaPvm.getDate() +"."+ omaPvm.getMonth() +"." + omaPvm.getFullYear() + " " + omaPvm.getHours()+ ":" +omaPvm.getMinutes();
         }
 
         function laskuri(){
-
+            let pvmEka = Date.parse(document.pvmLomake.apvm.value);
+            let pvmToka = Date.parse(document.pvmLomake.lpvm.value);
+            //aikaeron laskenta
+            let aikaEro = Math.abs(pvmToka-pvmEka);
+            //Montaka päivää tai vuotta
+            let pvmEro = Math.ceil(aikaEro / (1000*3600*24));
+            let vvvvEro = Math.floor(aikaEro / (1000*3600*24*365));
+            //Päivitys ruudulle
+            document.pvmLomake.paivia.value=pvmEro;
+            document.pvmLomake.vuosia.value=vvvvEro;
         }
     </script>
 </body>
