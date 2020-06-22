@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form name="pvmLomake">
+        <button onclick="testiFunktio()">Tervehdys</button>
+        <p id="paikkamerkki"></p>
+
+        Anna alkupvm: <input type="date" name="apvm" min="2020-06-01"><br>
+        Anna loppupvm: <input type="date" name="lpvm" max="2049-12-31">
+
+        <button onclick="laskuri()">Laskuri</button>
+        Päivämäärien erotus päivissä: <input type="text" name="paivia"><br>
+        Päivämäärien erotus vuosissa: <input type="text" name="vuosia"><br>
+    </form>
+    <script>
+        function testiFunktio(){
+            let omaPvm = new Date();
+            document.getElementById("paikkamerkki").innerHTML ="Nyt on: " +omaPvm.getDate() +"."+ omaPvm.getMonth() +"." + omaPvm.getFullYear() + " " + omaPvm.getHours()+ ":" +omaPvm.getUTCMinutes();
+        }
+
+        function laskuri(){
+
+        }
+    </script>
+</body>
+</html>
